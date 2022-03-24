@@ -96,6 +96,8 @@ def process_choice(choice):
         itemNum = input("transaction itemNum: ")
         transaction = {'itemNum':itemNum}
         transactions.delete_transactions(transaction)
+    elif choice=='11':
+        print(menu)
     else:
         print("choice",choice,"not yet implemented")
 
