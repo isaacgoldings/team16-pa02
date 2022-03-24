@@ -44,3 +44,10 @@ class transaction:
         con.close()
         return last_rowid[0]
 
+    #added by Lucian
+    def delete_transactions(self, item):
+        con= sqlite3.connect(self.db)
+        sql = "DELETE FROM transactions WHERE itemNUM=?"
+        cur = con.cursor()
+        cur.execute(sql, ((item['itemNum'])))
+        con.commit()
