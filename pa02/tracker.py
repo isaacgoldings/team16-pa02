@@ -33,10 +33,13 @@ could be replaced with PostgreSQL or Pandas or straight python lists
 
 #from transactions import Transaction
 from category import Category
+from transactions import transaction
 import sys
 
 #transactions = Transaction('tracker.db')
 category = Category('tracker.db')
+
+transactions = transaction('tracker.db')
 
 
 # here is the menu for the tracker app
@@ -58,12 +61,12 @@ menu = '''
 
 
 
-
 def process_choice(choice):
 
     if choice=='0':
         return
     elif choice=='1':
+
         cats = category.select_all()
         print_categories(cats)
     elif choice=='2':
@@ -78,6 +81,17 @@ def process_choice(choice):
         desc = input("new category description: ")
         cat = {'name':name, 'desc':desc}
         category.update(rowid,cat)
+    elif choice=='4':
+        transact = transactions.show_transactions()
+        print_transactions(transact)
+    elif choice=='5':
+        itemNum = input("transaction itemNum: ")
+        amount = input("transaction amount: ")
+        category_t = input("transaction category: ")
+        date = input("transaction date: ")
+        description = input("transaction description: ")
+        transaction = {'itemNum':itemNum, 'amount':amount, 'category':category_t, 'date':date, 'description':description}
+        transactions.add_transactions(transaction)
     else:
         print("choice",choice,"not yet implemented")
 
@@ -105,12 +119,14 @@ def print_transactions(items):
         print('no items to print')
         return
     print('\n')
-    print("%-10s %-10d %-10s %-10d %-30s"%(
+    print("%-10s %-10s %-10s %-10s %-30s"%(#changed 2nd and 4rd d to s
         'item #','amount','category','date','description'))
+    # print("%-10s %-10d %-10s %-10d %-30s"%(
+    #     'item #','amount','category','date','description'))
     print('-'*40)
     for item in items:
         values = tuple(item.values()) 
-        print("%-10s %-10d %-10s %-10d %-30s"%values)
+        print("%-10s %-10s %-10s %-10s %-30s"%values)#changed 2nd and 4th d to s
 
 def print_category(cat):
     print("%-3d %-10s %-30s"%(cat['rowid'],cat['name'],cat['desc']))
