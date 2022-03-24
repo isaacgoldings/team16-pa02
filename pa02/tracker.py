@@ -83,6 +83,7 @@ def process_choice(choice):
         category.update(rowid,cat)
     elif choice=='4':
         transact = transactions.show_transactions()
+        print(transact[0])
         print_transactions(transact)
     elif choice=='5':
         itemNum = input("transaction itemNum: ")
@@ -90,7 +91,7 @@ def process_choice(choice):
         category_t = input("transaction category: ")
         date = input("transaction date: ")
         description = input("transaction description: ")
-        transaction = {'itemNum':itemNum, 'amount':amount, 'category':category_t, 'date':date, 'description':description}
+        transaction = {'itemNum':itemNum, 'amount':amount, 'category_t':category_t, 'date':date, 'description':description}
         transactions.add_transactions(transaction)
     elif choice=='6':
         itemNum = input("transaction itemNum: ")

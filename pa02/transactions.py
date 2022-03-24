@@ -2,7 +2,7 @@ import sqlite3
 
 def to_transactions_dict(transactions_tuple):
     ''' transactions is a category tuple (rowid, name, desc)'''
-    transactions = {'rowid':transactions_tuple[0], 'itemNum':transactions_tuple[1], 'amount':transactions_tuple[2], 'date':transactions_tuple[3], 'description':transactions_tuple[4]}
+    transactions = {'itemNum':transactions_tuple[0], 'amount':transactions_tuple[1], 'category_t':transactions_tuple[2], 'date':transactions_tuple[3], 'description':transactions_tuple[4]}
     return transactions
 
 def to_transactions_dict_list(transactions_tuple):
@@ -15,8 +15,9 @@ class transaction:
     
         con= sqlite3.connect(db)
         cur = con.cursor()
+        #cur.execute('''DROP TABLE transactions''')
         cur.execute('''CREATE TABLE IF NOT EXISTS transactions
-                    (itemNum INT, amount FLOAT, category TEXT, date DATE, description TEXT)''')
+                    (itemNum INT, amount FLOAT, category_t TEXT, date DATE, description TEXT)''')
         con.commit()
         con.close()
 
@@ -36,7 +37,7 @@ class transaction:
     def add_transactions(self, item):
         con= sqlite3.connect(self.db)
         cur = con.cursor()
-        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['itemNum'],item['amount'],item['category'],item['date'],item['description']))
+        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['itemNum'],item['amount'],item['category_t'],item['date'],item['description']))
         con.commit()
         cur.execute("SELECT last_insert_rowid()")
         last_rowid = cur.fetchone()
@@ -49,5 +50,5 @@ class transaction:
         con= sqlite3.connect(self.db)
         sql = "DELETE FROM transactions WHERE itemNUM=?"
         cur = con.cursor()
-        cur.execute(sql, ((item['itemNum'])))
+        cur.execute(sql, (item['itemNum']))
         con.commit()
