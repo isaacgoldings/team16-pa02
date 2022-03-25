@@ -41,7 +41,6 @@ category = Category('tracker.db')
 
 transactions = transaction('tracker.db')
 
-
 # here is the menu for the tracker app
 
 menu = '''
@@ -58,8 +57,6 @@ menu = '''
 10. summarize transactions by category
 11. print this menu
 '''
-
-
 
 def process_choice(choice):
 
@@ -83,7 +80,6 @@ def process_choice(choice):
         category.update(rowid,cat)
     elif choice=='4':
         transact = transactions.show_transactions()
-        print(transact[0])
         print_transactions(transact)
     elif choice=='5':
         itemNum = input("transaction itemNum: ")
@@ -120,7 +116,6 @@ def process_choice(choice):
 
     choice = input("> ")
     return(choice)
-
 
 def toplevel():
     ''' handle the user's choice '''
@@ -159,7 +154,6 @@ def print_categories(cats):
     print('-'*45)
     for cat in cats:
         print_category(cat)
-
 
 # here is the main call!
 

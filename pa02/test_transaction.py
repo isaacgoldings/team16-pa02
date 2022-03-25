@@ -53,3 +53,20 @@ def test_add(test_db):
     # tran1 = test_db.select_one(rowid)
     # assert tran1['name']==tran0['name']
     # assert tran1['desc']==tran0['desc']
+
+@pytest.fixture
+def test_db2(empty_db):
+    trans0 = {'itemNum':'1', 'amount':'50', 'category_t':'test1', 'date':'2500-1-10', 'description':'testadd'}
+    trans1 = {'itemNum':'2', 'amount':'40', 'category_t':'test2', 'date':'2500-1-10', 'description':'testadd'}
+    trans2 = {'itemNum':'3', 'amount':'10', 'category_t':'test3', 'date':'2500-3-10', 'description':'testadd'}
+    recent = empty_db.add_transactions(trans0)
+    recent = empty_db.add_transactions(trans1)
+    recent = empty_db.add_transactions(trans2)
+    yield empty_db
+
+#tests summarize transactions by date function
+@pytest.mark.sum_by_date 
+def test_sum_by_date(test_db2):
+    recent = test_db2.summarize_by_date("2500-1-10")
+    assert len(recent) == 2
+    
