@@ -53,11 +53,13 @@ class transaction:
         cur.execute(sql, (item['itemNum']))
         con.commit()
 
-    def summarize_by_date(self, date):
+    #added by Mat
+    def summarize_by_date(self, d_date):
         con= sqlite3.connect(self.db)
         cur = con.cursor()
-        cur.execute("SELECT * from transactions WHERE self.date==date")
+        date_cmd = "SELECT * from transactions where date = '{}'".format(d_date)
+        cur.execute(date_cmd)
         tuples = cur.fetchall()
-        con.commit()
         con.close()
         return to_transactions_dict_list(tuples)
+    
