@@ -37,7 +37,7 @@ class transaction:
     def add_transactions(self, item):
         con= sqlite3.connect(self.db)
         cur = con.cursor()
-        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['itemNum'],item['amount'],item['category_t'],item['date'],item['description']))
+        cur.execute("INSERT INTO transactions VALUES(?,?,?,?,?)",(item['itemNum'],item['amount'] ,item['category_t'],item['date'],item['description']))
         con.commit()
         cur.execute("SELECT last_insert_rowid()")
         last_rowid = cur.fetchone()
@@ -52,3 +52,12 @@ class transaction:
         cur = con.cursor()
         cur.execute(sql, (item['itemNum']))
         con.commit()
+
+    def summarize_by_date(self, date):
+        con= sqlite3.connect(self.db)
+        cur = con.cursor()
+        cur.execute("SELECT * from transactions WHERE self.date==date")
+        tuples = cur.fetchall()
+        con.commit()
+        con.close()
+        return to_transactions_dict_list(tuples)

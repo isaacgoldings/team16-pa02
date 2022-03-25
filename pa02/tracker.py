@@ -97,6 +97,10 @@ def process_choice(choice):
         itemNum = input("transaction itemNum: ")
         transaction = {'itemNum':itemNum}
         transactions.delete_transactions(transaction)
+    elif choice=='7':
+        d_date = input("Date: ")
+        d_transactions = transactions.summarize_by_date(d_date)
+        print_transactions(d_transactions)
     elif choice=='11':
         print(menu)
     else:
