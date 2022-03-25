@@ -109,7 +109,10 @@ def process_choice(choice):
         year_date = input("Input year:")
         year_transactions = transactions.summarize_by_year(year_date)
         print_transactions(year_transactions)
-
+    elif choice =='10':
+        category_cmd = input("Input category:")
+        category_transactions = transactions.summarize_by_category(category_cmd)
+        print_transactions(category_transactions)
     elif choice=='11':
         print(menu)
     else:

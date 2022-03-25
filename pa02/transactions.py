@@ -86,4 +86,14 @@ class transaction:
         tuples = cur.fetchall()
         con.close()
         return to_transactions_dict_list(tuples)
+
+    #added by Jacob
+    def summarize_by_category(self, category_search):
+        con= sqlite3.connect(self.db)
+        cur = con.cursor()
+        category_cmd = "SELECT * from transactions where category_t = '{}'".format(category_search)
+        cur.execute(category_cmd)
+        tuples = cur.fetchall()
+        con.close()
+        return to_transactions_dict_list(tuples)
     
