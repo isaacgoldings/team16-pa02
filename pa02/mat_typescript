@@ -1,0 +1,66 @@
+Script started on Fri Mar 25 07:37:14 2022
+[1m[7m%[27m[1m[0m                                                                               ]7;file://MacBook-Air.local/Users/Mateus/desktop/team16-pa02/pa02[0m[27m[24m[J(base) Mateus@MacBook-Air pa02 % [K[?2004hppylint transactions.py[?2004l
+************* Module transactions
+transactions.py:5:0: C0301: Line too long (187/100) (line-too-long)
+transactions.py:11:0: C0303: Trailing whitespace (trailing-whitespace)
+transactions.py:38:0: C0301: Line too long (151/100) (line-too-long)
+transactions.py:97:0: C0303: Trailing whitespace (trailing-whitespace)
+transactions.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+transactions.py:12:0: C0103: Class name "transaction" doesn't conform to PascalCase naming style (invalid-name)
+transactions.py:21:8: C0103: Attribute name "db" doesn't conform to snake_case naming style (invalid-name)
+transactions.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+transactions.py:35:4: C0116: Missing function or method docstring (missing-function-docstring)
+transactions.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
+transactions.py:55:4: C0116: Missing function or method docstring (missing-function-docstring)
+transactions.py:65:4: C0116: Missing function or method docstring (missing-function-docstring)
+transactions.py:77:4: C0116: Missing function or method docstring (missing-function-docstring)
+transactions.py:89:4: C0116: Missing function or method docstring (missing-function-docstring)
+
+------------------------------------------------------------------
+Your code has been rated at 8.11/10 (previous run: 8.11/10, +0.00)
+
+[0m[1m[7m%[27m[1m[0m                                                                               ]7;file://MacBook-Air.local/Users/Mateus/desktop/team16-pa02/pa02[0m[27m[24m[J(base) Mateus@MacBook-Air pa02 % [K[?2004hppylint tracker.py[?2004l
+************* Module tracker
+tracker.py:29:61: C0303: Trailing whitespace (trailing-whitespace)
+tracker.py:90:0: C0301: Line too long (123/100) (line-too-long)
+tracker.py:118:0: C0325: Unnecessary parens after 'return' keyword (superfluous-parens)
+tracker.py:146:37: C0303: Trailing whitespace (trailing-whitespace)
+tracker.py:161:0: C0305: Trailing newlines (trailing-newlines)
+tracker.py:46:0: C0103: Constant name "menu" doesn't conform to UPPER_CASE naming style (invalid-name)
+tracker.py:90:8: W0621: Redefining name 'transaction' from outer scope (line 36) (redefined-outer-name)
+tracker.py:61:0: C0116: Missing function or method docstring (missing-function-docstring)
+tracker.py:61:0: R0914: Too many local variables (21/15) (too-many-locals)
+tracker.py:63:4: R1705: Unnecessary "elif" after "return" (no-else-return)
+tracker.py:85:8: C0103: Variable name "itemNum" doesn't conform to snake_case naming style (invalid-name)
+tracker.py:93:8: C0103: Variable name "itemNum" doesn't conform to snake_case naming style (invalid-name)
+tracker.py:61:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+tracker.py:61:0: R0912: Too many branches (13/12) (too-many-branches)
+tracker.py:61:0: R0915: Too many statements (53/50) (too-many-statements)
+tracker.py:123:4: W0105: String statement has no effect (pointless-string-statement)
+tracker.py:149:0: C0116: Missing function or method docstring (missing-function-docstring)
+tracker.py:152:0: C0116: Missing function or method docstring (missing-function-docstring)
+tracker.py:37:0: W0611: Unused import sys (unused-import)
+tracker.py:37:0: C0411: standard import "import sys" should be placed before "from category import Category" (wrong-import-order)
+
+------------------------------------------------------------------
+Your code has been rated at 7.65/10 (previous run: 7.65/10, +0.00)
+
+[0m[1m[7m%[27m[1m[0m                                                                               ]7;file://MacBook-Air.local/Users/Mateus/desktop/team16-pa02/pa02[0m[27m[24m[J(base) Mateus@MacBook-Air pa02 % [K[?2004hppytest[?2004l
+[1m============================= test session starts =============================[0m
+platform darwin -- Python 3.8.8, pytest-6.1.1, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/Mateus/Desktop/team16-pa02/pa02, configfile: pytest.ini
+plugins: anyio-2.2.0
+[1mcollecting ... [0m[1mcollected 6 items                                                             [0m
+
+test_category.py [32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m                                                   [ 66%][0m
+test_transaction.py [32m.[0m[32m.[0m[32m                                                  [100%][0m
+
+[32m============================== [32m[1m6 passed[0m[32m in 0.23s[0m[32m ==============================[0m
+[1m[7m%[27m[1m[0m                                                                               ]7;file://MacBook-Air.local/Users/Mateus/desktop/team16-pa02/pa02[0m[27m[24m[J(base) Mateus@MacBook-Air pa02 % [K[?2004heexit[?2004l
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+Deleting expired sessions...none found.
+
+Script done on Fri Mar 25 07:39:58 2022
