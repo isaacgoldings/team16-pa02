@@ -54,6 +54,17 @@ def test_add(test_db):
     # assert tran1['name']==tran0['name']
     # assert tran1['desc']==tran0['desc']
 
+#tests delete added by Lucian
+@pytest.mark.delete
+def test_delete(test_db):
+    db = test_db.show_transactions()
+  #  yield len(db)
+    assert len(db) == 4
+    recent = test_db.delete_transactions(4)
+    db = test_db.show_transactions()
+    assert len(db) == 3
+
+
 @pytest.fixture
 def test_db2(empty_db):
     trans0 = {'itemNum':'1', 'amount':'50', 'category_t':'test1', 'date':'2500-1-10', 'description':'testadd'}
