@@ -62,4 +62,17 @@ class transaction:
         tuples = cur.fetchall()
         con.close()
         return to_transactions_dict_list(tuples)
+
+    #added by Jacob
+    def summarize_by_year(self, year_date):
+        con= sqlite3.connect(self.db)
+        cur = con.cursor()
+        first = "SELECT * from transactions where date LIKE '%"
+        second = "%'"
+        year_cmd = first + year_date + second
+        # print(year_cmd)
+        cur.execute(year_cmd)
+        tuples = cur.fetchall()
+        con.close()
+        return to_transactions_dict_list(tuples)
     
